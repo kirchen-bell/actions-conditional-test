@@ -32,5 +32,5 @@ jobs:
         id: 'out-one'
         run: echo "::set-output name=out::1"
       - name: validate one
-        if: ${{ steps.out-true.outputs.out }}
+        if: ${{ steps.out-one.outputs.out }}
         run: echo "validate one"
