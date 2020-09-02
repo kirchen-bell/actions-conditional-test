@@ -1,0 +1,36 @@
+name: conditional test 3
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'true'
+        id: 'out-true'
+        run: echo "::set-output name=out::true"
+      - name: validate true
+        if: ${{ steps.out-true.outputs.out == 'true' }}
+        run: echo "validate true"
+
+      - name: 'false'
+        id: 'out-false'
+        run: echo "::set-output name=out::false"
+      - name: validate false
+        if: ${{ steps.out-false.outputs.out == 'true' }}
+        run: echo "validate false"
+
+      - name: '0'
+        id: 'out-zero'
+        run: echo "::set-output name=out::0"
+      - name: validate zero
+        if: ${{ steps.out-zero.outputs.out == 'true' }}
+        run: echo "validate zero"
+
+      - name: '1'
+        id: 'out-one'
+        run: echo "::set-output name=out::1"
+      - name: validate one
+        if: ${{ steps.out-one.outputs.out == 'true' }}
+        run: echo "validate one"
