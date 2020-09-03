@@ -6,5 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo contains is true
-        if: contains('true', True)
-        
+        if: contains('true', true)
