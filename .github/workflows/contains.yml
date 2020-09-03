@@ -7,3 +7,5 @@ jobs:
     steps:
       - run: echo contains is true
         if: contains('true', true)
+      - run: echo invaid
+        if: contains('true', this is invalid value)
