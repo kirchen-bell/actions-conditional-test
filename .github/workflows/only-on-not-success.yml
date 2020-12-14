@@ -1,0 +1,14 @@
+name: only-on-not-success
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - if: '!success()'
+        run: echo "not success"
+      - run: exit 1
+      - if: '!success()'
+        run: echo "not success"
